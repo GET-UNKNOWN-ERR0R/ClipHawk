@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard Access</title>
+</head>
+<body>
+    <h1>Clipboard Access</h1>
+    <button onclick="getClipboardContent()">Allow Clipboard Access</button>
+    <script>
+        async function getClipboardContent() {
+            try {
+                const permission = await navigator.permissions.query({ name: "clipboard-read" });
+                if (permission.state === "granted" || permission.state === "prompt") {
+                    const text = await navigator.clipboard.readText();
+                    saveClipboardContent(text);
+                } else {
+                    alert("Clipboard access denied.");
+                }
+            } catch (err) {
+                console.error("Failed to read clipboard contents: ", err);
+            }
+        }
+
+       async function saveClipboardContent(content) {
+            try {
+                const response = await fetch('/save-clipboard', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ content }),
+                });
+
+                if (response.ok) {
+                    alert('Content saved successfully');
+                } else {
+                    alert('Failed to save content');
+                }
+            } catch (err) {
+                console.error('Failed to save clipboard content:', err);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
