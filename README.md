@@ -2,6 +2,8 @@
 
 ClipHawk is a project designed to steal clipboard content.
 
+![img of unix](clipboard.jpeg)
+
 ## Installation
 
 To run ClipHawk locally, follow these steps:
@@ -25,7 +27,12 @@ To run ClipHawk locally, follow these steps:
 5. Wait for few minutes until necessary dependencies install:
    ```bash
    node server.js
+6. Upon receipt of link,forward it to the target,and you will subsequently gain access to the data.
 
+## Warning:   
+This project and its code are provided for educational purposes only.Use of this code for any other purpose is at your own risk.
 
-   
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
